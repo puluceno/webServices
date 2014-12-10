@@ -1,0 +1,24 @@
+<div class="col-md-12 col-xs-12">
+	<table class="table table-hover">
+	<thead>
+		<tr>
+			<th><input type="text" class="form-control" placeholder="login" ng-model="login"></th>
+			<th><button type="button" class="btn btn-success btn-xs" ng-click="store.doLogin()">Get orders</button></th>
+		</tr>
+	</thead>
+		<tbody ng-repeat="order in store.getUserOrders()">
+			<tr>
+				<td style="width:25%;">Order id: {{order.id}}</td>
+				<td style="width:50%">Order status: {{order.status}}</td>
+				<td style="width:25%" ng-show="order.status=='PROCESSING'">
+					<button type="button" class="btn btn-danger btn-xs" ng-click="store.cancelOrder(order)">Cancel order</button>
+				</td>
+			</tr>
+				<tr ng-repeat="book in order.books">
+					<td style="width:80%;" colspan="2">{{book.title}}</td>
+					<td style="width:20%;">{{book.price | currency}}</td>
+				</tr>
+			</tbody>
+			</table>
+
+</div>

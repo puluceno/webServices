@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="store">
+	<head>
+		<title>BookStore</title>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	    <meta name="description" content="WS project">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+		<script src="http://code.angularjs.org/1.2.16/angular-route.min.js"></script>
+		<script type="text/javascript" src="store.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+		<style type="text/css">
+		.error{
+			color:darkred;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h2>BookStore</h2><br/>
+			<ul class="nav nav-tabs">
+			  <li ng-class="{active: (active == '/books')}">
+			  	<a ng-click="active = '/books'" href="#/books">Books</a>
+			  </li>
+			  <li ng-class="{active: (active == '/checkout')}">
+			  	<a ng-click="active = '/checkout'" href="#/checkout">Checkout</a>
+			  </li>
+			  <li ng-class="{active: (active == '/status')}">
+			  	<a ng-click="active = '/status'" href="#/status">Status</a>
+			  </li>
+			</ul><br/><br/>
+			<div ng-view></div>
+		</div>
+	</body>
+</html>
